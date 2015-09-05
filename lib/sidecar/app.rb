@@ -10,8 +10,6 @@ module Sidecar
     post "/slack" do
       slack_command = SlackCommand.new(params[:text])
       channel = Channel.create(slack_command.channel_name)
-      require "pry"; binding.pry
-      channel
     end
   end
 end
