@@ -12,7 +12,7 @@ module Sidecar
     def self.find_or_create(name)
       create = Sidecar::SlackClient.create_channel(name)
       channel = if create["ok"]
-                  create
+                  create["channel"]
                 else
                   find(name)
                 end
