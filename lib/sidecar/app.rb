@@ -9,7 +9,7 @@ module Sidecar
 
     post "/slack" do
       slack_command = SlackCommand.new(params[:text])
-      channel = Channel.create(slack_command.channel_name)
+      channel = Channel.find_or_create(slack_command.channel_name)
     end
   end
 end

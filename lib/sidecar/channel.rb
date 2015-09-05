@@ -9,18 +9,21 @@ module Sidecar
       @name = json["name"]
     end
 
-    def self.create(name)
-      new_channel = Sidecar::SlackClient.create_channel(name)
-      channel = if new_channel["ok"]
-                  new_channel
+    def self.find_or_create(name)
+      create = Sidecar::SlackClient.create_channel(name)
+      channel = if create["ok"]
+                  create
                 else
-                  list_channels = Sidecar::SlackClient.list_channels
-                  list_channels["channels"].detect do |existing_channel|
-                    existing_channel["name"] == name
-                  end
+                  find(name)
                 end
 
       new(channel)
+    end
+
+    def self.find(name)
+      Sidecar::SlackClient.list_channels["channels"].detect do |channel|
+        channel["name"] == name
+      end
     end
   end
 end
