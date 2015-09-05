@@ -1,3 +1,4 @@
+require "sidecar/slack_command"
 require "sidecar/channel"
 
 module Sidecar
@@ -7,8 +8,10 @@ module Sidecar
     end
 
     post "/slack" do
+      slack_command = SlackCommand.new(params[:text])
+      channel = Channel.create(slack_command.channel_name)
       require "pry"; binding.pry
-      Channel.create(name)
+      channel
     end
   end
 end

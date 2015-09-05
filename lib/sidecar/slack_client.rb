@@ -2,26 +2,41 @@ require "httparty"
 
 module Sidecar
   class SlackClient
-    BASE_URL = "https://slack.com"
+    include HTTParty
+    base_uri = "https://slack.com"
 
-    def self.create_channel(name)
-      body = {
-        name: name,
-        token: ENV["SLACK_TOKEN"]
-      }
+    class << self
+      def create_channel(name)
+        body = {
+          name: name,
+          token: ENV["SLACK_TOKEN"]
+        }
 
-      HTTParty.post(BASE_URL + "/api/channels.create", body: body)
-    end
+        post("/api/channels.create", body: body)
+      end
 
-    def self.post_message(message:)
-      body = {
-        username: "RandomKellieTweets",
-        channel: ENV["SLACK_CHANNEL"],
-        text: message,
-        token: ENV["SLACK_TOKEN"]
-      }
+      def list_channels
+        body = {
+          token: ENV["SLACK_TOKEN"]
+        }
 
-      HTTParty.post("https://slack.com/api/chat.postMessage", body: body)
+        post("/api/channels.list", body: body)
+      end
+
+      def list_users
+
+      end
+
+      def post_message(message:)
+        body = {
+          username: "RandomKellieTweets",
+          channel: ENV["SLACK_CHANNEL"],
+          text: message,
+          token: ENV["SLACK_TOKEN"]
+        }
+
+        post("/api/chat.postMessage", body: body)
+      end
     end
   end
 end
