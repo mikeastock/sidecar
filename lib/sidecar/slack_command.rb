@@ -1,15 +1,18 @@
+require "sidecar/user"
+
 module Sidecar
   class SlackCommand
+    attr_reader :channel_name, :usernames
+
     def initialize(text)
-      @input = text.split(" ")
+      @channel_name, *@usernames = text.split(" ")
     end
 
-    def channel_name
-      input.fetch(0)
+    def users
+      all_users = Sidecar::SlackClient.
+        list_users["members"].
+        map { |user| Sidecar::User.new(user["id"], user["name"]) }.
+        select { |user| usernames.include?(user.name) }
     end
-
-    private
-
-    attr_reader :input
   end
 end

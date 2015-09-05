@@ -10,6 +10,9 @@ module Sidecar
     post "/slack" do
       slack_command = SlackCommand.new(params[:text])
       channel = Channel.find_or_create(slack_command.channel_name)
+      slack_command.users.each do |user|
+        Sidecar::SlackClient.invite_channel(user: user.id, channel: channel.id)
+      end
     end
   end
 end

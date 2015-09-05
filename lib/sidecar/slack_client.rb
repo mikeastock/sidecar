@@ -20,7 +20,16 @@ module Sidecar
       end
 
       def list_users
+        get("/api/users.list")
+      end
 
+      def invite_channel(user:, channel:)
+        body = {
+          user: user,
+          channel: channel,
+        }
+
+        post("/api/channels.invite", body: body)
       end
 
       def post_message(message:)
@@ -28,7 +37,6 @@ module Sidecar
           username: "RandomKellieTweets",
           channel: ENV["SLACK_CHANNEL"],
           text: message,
-          token: ENV["SLACK_TOKEN"]
         }
 
         post("/api/chat.postMessage", body: body)
