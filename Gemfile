@@ -1,6 +1,10 @@
 source "https://rubygems.org/"
 
-gem "sinatra", "~> 1.4"
+gem "sinatra"
+
+gem "dotenv"
+gem "httparty"
+gem "slack-notifier"
 
 group :development do
   gem "rake", "~> 10.0"
