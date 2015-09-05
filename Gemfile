@@ -1,15 +1,6 @@
 source "https://rubygems.org/"
 
-# App Stack
 gem "sinatra", "~> 1.4"
-
-# Database Stack
-gem "sequel"
-
-# Redis
-gem "hiredis", "~> 0.4"
-gem "redis", "~> 3.0", :require => ["redis/connection/hiredis", "redis"]
-gem "fakeredis", "~> 0.4"
 
 group :development do
   gem "rake", "~> 10.0"
