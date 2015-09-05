@@ -4,11 +4,15 @@ gem "sinatra"
 
 gem "dotenv"
 gem "httparty"
+gem "rake"
 gem "slack-notifier"
 
 group :development do
   gem "pry"
-  gem "rake"
+  gem "shotgun"
+end
+
+group :test do
   gem "minitest"
   gem "rack-test"
 end
