@@ -1,26 +1,32 @@
-# encoding: UTF-8
-
-require 'bundler'
-
-Bundler.setup
-Bundler.require
+require "sidecar"
 
 ENV["RACK_ENV"] = "test"
 
-require 'minitest/pride'
-require 'minitest/autorun'
-require 'minitest/spec'
-require 'rack/test'
+RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
 
-require 'fakeredis'
-REDIS = Redis.new
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
 
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
 
-require "find"
-%w{./config/initializers ./lib}.each do |load_path|
-  Find.find(load_path) { |f| require f if f.match(/\.rb$/) }
-end
+  config.example_status_persistence_file_path = "spec/examples.txt"
 
-class MiniTest::Spec
-  include Rack::Test::Methods
+  config.disable_monkey_patching!
+
+  config.warnings = true
+
+  if config.files_to_run.one?
+    config.default_formatter = "doc"
+  end
+
+  config.profile_examples = 10
+
+  config.order = :random
+
+  Kernel.srand config.seed
 end

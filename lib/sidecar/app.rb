@@ -1,3 +1,4 @@
+require "sinatra"
 require "sidecar/slack_command"
 require "sidecar/channel"
 

@@ -1,4 +1,5 @@
 source "https://rubygems.org/"
+ruby "2.3.1"
 
 gem "sinatra"
 
@@ -13,6 +14,6 @@ group :development do
 end
 
 group :test do
-  gem "minitest"
   gem "rack-test"
+  gem "rspec"
 end
