@@ -8,7 +8,10 @@ module Sidecar
 
     describe "POST /slack" do
       it do
-        post "/slack"
+        expect(SlackCommand).to receive(:new).with("new-channel").and_return(spy)
+        expect(Channel).to receive(:find_or_create).and_return(spy)
+
+        post "/slack", text: "new-channel"
 
         expect(last_response).to be_ok
       end
