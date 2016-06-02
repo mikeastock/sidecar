@@ -5,14 +5,14 @@ module Sidecar
     attr_reader :id, :name
 
     def initialize(json)
-      @id = json["id"]
-      @name = json["name"]
+      @id = json.fetch("id")
+      @name = json.fetch("name")
     end
 
     def self.find_or_create(name)
-      create = Sidecar::SlackClient.create_channel(name)
-      channel = if create["ok"]
-                  create["channel"]
+      create_response = Sidecar::SlackClient.create_channel(name)
+      channel = if create_response["ok"]
+                  create_response["channel"]
                 else
                   find(name)
                 end
