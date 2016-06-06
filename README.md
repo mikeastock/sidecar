@@ -5,19 +5,20 @@
 </p>
 
 [![CircleCI](https://circleci.com/gh/mikeastock/sidecar/tree/master.svg?style=svg)](https://circleci.com/gh/mikeastock/sidecar/tree/master)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 A Slack bot that creates channels for side conversations
 
 Have you ever needed to take a conversation in a Slack channel to a new channel?
+
 Are people in a large channel less than happy about your side conversation?
+
 Well you should give Sidecar a spin, the idea is that this bot will create a new
 channel and invite users all in one fell swoop so you can continue your conversation
 and leave other members of the channel happy.
 
 ### Setup
 
-Deploy to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 To configure there needs to be a Slack API Key environment variable set.
 
