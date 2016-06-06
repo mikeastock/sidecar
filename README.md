@@ -5,6 +5,7 @@
 </p>
 
 [![CircleCI](https://circleci.com/gh/mikeastock/sidecar/tree/master.svg?style=svg)](https://circleci.com/gh/mikeastock/sidecar/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 A Slack bot that creates channels for side conversations
 
