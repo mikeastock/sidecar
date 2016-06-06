@@ -16,12 +16,27 @@ Well you should give Sidecar a spin, the idea is that this bot will create a new
 channel and invite users all in one fell swoop so you can continue your conversation
 and leave other members of the channel happy.
 
-### Setup
+## Getting Started
+1. Create a new [bot integration](https://my.slack.com/services/new/bot)
+2. Follow the steps to deploy the bot to Heroku or run it locally
+3. Once the bot is running, start a new channel with `@<your-bot-name> new-channel-name @people @to @invite`
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+#### One-Click Heroku
+Click this button:
 
-To configure there needs to be a Slack API Key environment variable set.
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-```bash
-heroku config:set SLACK_TOKEN="some-token"
-```
+#### Manual Heroku
+1. Install [Heroku toolbelt](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+2. Create a new bot integration (as above)
+3. `heroku create`
+4. `heroku config:set SLACK_TOKEN=[Your API token]`
+5. `git push heroku master`
+
+#### To Run Locally
+1. Create a `.env` file and paste `SLACK_TOKEN=[Your API Token]`
+1. `bundle install`
+1. `bundle exec rackup`
+
+## Directions
+* To start a new channel, `@<your-bot-name> new-channel-name @people @to @invite`
