@@ -1,0 +1,7 @@
+{
+  "name": "Sidecar",
+  "description": "A Slackbot for creating channels",
+  "repository": "https://github.com/mikeastock/sidecar",
+  "logo": "",
+  "keywords": ["slack", "bot", "ruby"]
+}
