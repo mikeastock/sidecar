@@ -2,6 +2,6 @@
   "name": "Sidecar",
   "description": "A Slackbot for creating channels",
   "repository": "https://github.com/mikeastock/sidecar",
-  "logo": "",
+  "logo": "https://raw.githubusercontent.com/mikeastock/sidecar/master/logo.png",
   "keywords": ["slack", "bot", "ruby"]
 }
