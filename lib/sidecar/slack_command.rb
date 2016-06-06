@@ -9,9 +9,9 @@ module Sidecar
     end
 
     def users
-      all_users = Sidecar::SlackClient.
+      SlackClient.
         list_users["members"].
-        map { |user| Sidecar::User.new(user["id"], user["name"]) }.
+        map { |user| User.new(user["id"], user["name"]) }.
         select { |user| usernames.include?(user.name) }
     end
   end
