@@ -1,5 +1,9 @@
 # Sidecar
 
+<p align="left">
+  <img src="https://raw.githubusercontent.com/mikeastock/sidecar/master/logo.png" alt="logo" title="logo" width="100" height="100">
+</p>
+
 [![CircleCI](https://circleci.com/gh/mikeastock/sidecar/tree/master.svg?style=svg)](https://circleci.com/gh/mikeastock/sidecar/tree/master)
 
 A Slack bot that creates channels for side conversations
